@@ -32,3 +32,24 @@ function displayContacts() {
         contactList.appendChild(div);
     });
 }
+
+function addContact() {
+    let name = document.getElementById('name').value;
+    let phone = document.getElementById('phone').value;
+    let email = document.getElementById('email').value;
+    let note = document.getElementById('note').value;
+
+    let contact = { name, phone, email, note };
+
+    let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
+    contacts.push(contact);
+
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+
+    displayContacts();
+}
+
+function displayContacts() {
+    let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+}
